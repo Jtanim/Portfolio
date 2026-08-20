@@ -3,8 +3,8 @@
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    background-color: #050505;
-    color: #FFFFFF;
+    background-color: #0B0F19;
+    color: #F8FAFC;
   }
   
   .font-serif {
@@ -12,7 +12,7 @@
   }
 
   .font-display {
-    font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   code, pre, .font-mono {
@@ -22,44 +22,72 @@
 
 /* CAD & Architectural Blueprint Grid Backgrounds */
 .bg-cad-grid {
-  background-size: 40px 40px;
+  background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
 }
 
 .bg-cad-dots {
   background-size: 24px 24px;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+}
+
+/* Glassmorphism and Card Accents */
+.glass-panel {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(24, 33, 53, 0.85);
+  border-color: rgba(6, 182, 212, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.15);
+  transform: translateY(-2px);
 }
 
 .glow-cyan {
-  box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.12);
+  box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.25);
 }
 
 .glow-amber {
-  box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.12);
+  box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.25);
 }
 
 .glow-emerald {
-  box-shadow: 0 0 35px -5px rgba(16, 185, 129, 0.12);
+  box-shadow: 0 0 35px -5px rgba(16, 185, 129, 0.25);
 }
 
-/* Ultra minimal hairline scrollbar */
+/* Precision scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #0B0F19;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #222222;
+  background: #1E293B;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #383838;
+  background: #334155;
+}
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 6s ease-in-out infinite;
 }

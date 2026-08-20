@@ -14,7 +14,8 @@ import {
   Wind,
   Zap,
   Droplets,
-  Flame
+  Flame,
+  CheckCircle2
 } from 'lucide-react';
 import { selectedProjects } from '../data/portfolioData';
 import { Project } from '../types';
@@ -59,71 +60,65 @@ export const ProjectsShowcase: React.FC<ProjectsShowcaseProps> = ({ onSelectProj
   }, [selectedCategory, selectedRegion, searchQuery]);
 
   return (
-    <section id="projects" className="py-24 bg-[#050505] border-b border-white/10 relative">
-      {/* Background Watermark */}
-      <div className="absolute top-10 left-10 opacity-[0.02] select-none pointer-events-none hidden md:block">
-        <span className="text-[280px] font-black leading-none tracking-tighter text-white">
-          ASSETS
-        </span>
-      </div>
+    <section id="projects" className="py-20 bg-[#0B0F19] border-b border-slate-800/80 relative">
+      
+      {/* Background Lighting */}
+      <div className="absolute top-1/4 right-1/4 w-[450px] h-[350px] bg-blue-600/5 blur-[140px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Bold Typography */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-8 border-b border-white/10">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 pb-6 border-b border-slate-800">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-white text-[10px] font-mono tracking-[0.25em] uppercase mb-4">
-              <Building2 className="w-3.5 h-3.5 text-neutral-400" />
-              <span>Project Deliverables</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-mono mb-3">
+              <Building2 className="w-3.5 h-3.5" />
+              <span>Flagship Mega-Projects</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tighter leading-tight">
-              SELECTED PROJECTS.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-500">
-                MEGA-DEVELOPMENTS.
-              </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              Selected Project Portfolio
             </h2>
-            <p className="text-neutral-400 text-sm sm:text-base mt-3 max-w-2xl font-light">
-              High-profile luxury resorts, residential compounds, and infrastructure developments delivered across Saudi Arabia and the UAE.
+            <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl font-normal">
+              Coordinated luxury resorts, residential multi-tower developments, and infrastructure assets across Saudi Arabia and the UAE.
             </p>
           </div>
 
-          <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 bg-[#0a0a0a] px-4 py-2 rounded-xl border border-white/10 self-start md:self-auto">
-            Showing <span className="text-white font-bold">{filteredProjects.length}</span> of {selectedProjects.length} Key Projects
+          <div className="text-xs font-mono text-slate-300 bg-slate-900/80 px-4 py-2 rounded-xl border border-slate-700/80 self-start md:self-auto">
+            Showing <span className="text-cyan-300 font-bold">{filteredProjects.length}</span> of {selectedProjects.length} Key Projects
           </div>
         </div>
 
         {/* Filter Controls Bar */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-[#0a0a0a] border border-white/10 mb-10 space-y-4 shadow-xl">
+        <div className="p-4 rounded-2xl bg-slate-900/70 border border-slate-800 mb-8 space-y-4 shadow-xl backdrop-blur-md">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             
-            {/* Category / Typology Filter */}
+            {/* Category Filter */}
             <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
               <button
                 onClick={() => setSelectedCategory('all')}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all cursor-pointer ${
                   selectedCategory === 'all'
-                    ? 'bg-white text-black font-bold shadow-sm'
-                    : 'bg-neutral-900 text-neutral-400 hover:text-white border border-white/10'
+                    ? 'bg-cyan-500 text-slate-950 font-bold shadow-sm shadow-cyan-500/20'
+                    : 'bg-slate-800/80 text-slate-300 hover:text-white border border-slate-700'
                 }`}
               >
-                All Typologies
+                All Projects
               </button>
               <button
                 onClick={() => setSelectedCategory('hospitality')}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all cursor-pointer ${
                   selectedCategory === 'hospitality'
-                    ? 'bg-white text-black font-bold shadow-sm'
-                    : 'bg-neutral-900 text-neutral-400 hover:text-white border border-white/10'
+                    ? 'bg-cyan-500 text-slate-950 font-bold shadow-sm shadow-cyan-500/20'
+                    : 'bg-slate-800/80 text-slate-300 hover:text-white border border-slate-700'
                 }`}
               >
                 Resorts &amp; Hotels
               </button>
               <button
                 onClick={() => setSelectedCategory('residential')}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all cursor-pointer ${
                   selectedCategory === 'residential'
-                    ? 'bg-white text-black font-bold shadow-sm'
-                    : 'bg-neutral-900 text-neutral-400 hover:text-white border border-white/10'
+                    ? 'bg-cyan-500 text-slate-950 font-bold shadow-sm shadow-cyan-500/20'
+                    : 'bg-slate-800/80 text-slate-300 hover:text-white border border-slate-700'
                 }`}
               >
                 Residential
@@ -132,36 +127,36 @@ export const ProjectsShowcase: React.FC<ProjectsShowcaseProps> = ({ onSelectProj
 
             {/* Region Filter & Search */}
             <div className="flex flex-wrap items-center gap-3 w-full md:w-auto justify-between md:justify-end">
-              <div className="flex items-center gap-1 bg-neutral-900 p-1 rounded-lg border border-white/10 text-xs font-mono">
+              <div className="flex items-center gap-1 bg-slate-800/90 p-1 rounded-xl border border-slate-700 text-xs font-mono">
                 <button
                   onClick={() => setSelectedRegion('all')}
-                  className={`px-3 py-1 rounded uppercase tracking-wider ${selectedRegion === 'all' ? 'bg-white text-black font-bold' : 'text-neutral-400'}`}
+                  className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${selectedRegion === 'all' ? 'bg-cyan-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-slate-200'}`}
                 >
                   All Regions
                 </button>
                 <button
                   onClick={() => setSelectedRegion('KSA')}
-                  className={`px-3 py-1 rounded uppercase tracking-wider ${selectedRegion === 'KSA' ? 'bg-white text-black font-bold' : 'text-neutral-400'}`}
+                  className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${selectedRegion === 'KSA' ? 'bg-cyan-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-slate-200'}`}
                 >
                   🇸🇦 KSA
                 </button>
                 <button
                   onClick={() => setSelectedRegion('UAE')}
-                  className={`px-3 py-1 rounded uppercase tracking-wider ${selectedRegion === 'UAE' ? 'bg-white text-black font-bold' : 'text-neutral-400'}`}
+                  className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${selectedRegion === 'UAE' ? 'bg-cyan-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-slate-200'}`}
                 >
                   🇦🇪 UAE
                 </button>
               </div>
 
               {/* Search Box */}
-              <div className="relative w-full sm:w-60">
-                <Search className="w-3.5 h-3.5 text-neutral-500 absolute left-3 top-1/2 -translate-y-1/2" />
+              <div className="relative w-full sm:w-64">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
-                  placeholder="Search Revit, DGDA, HVAC..."
+                  placeholder="Filter by system, tool..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-8 pr-3 py-2 bg-neutral-900 border border-white/10 focus:border-white/40 rounded-lg text-xs text-white placeholder-neutral-500 outline-none transition-colors font-mono"
+                  className="w-full pl-9 pr-4 py-1.5 bg-slate-950/80 border border-slate-700/80 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors font-mono"
                 />
               </div>
             </div>
@@ -169,88 +164,86 @@ export const ProjectsShowcase: React.FC<ProjectsShowcaseProps> = ({ onSelectProj
           </div>
         </div>
 
-        {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {filteredProjects.map((project, index) => (
+        {/* Projects Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {filteredProjects.map((project) => (
             <div
               key={project.id}
-              onClick={() => onSelectProject(project)}
-              className="group relative rounded-2xl bg-[#0a0a0a] border border-white/10 hover:border-white/30 p-7 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col justify-between"
+              className="rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-cyan-500/50 p-6 sm:p-7 shadow-xl hover:shadow-2xl hover:shadow-cyan-950/30 transition-all duration-300 flex flex-col justify-between group"
             >
               <div className="space-y-4">
                 
-                {/* Header Tag Bar with Editorial numbering */}
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2.5">
-                    <span className="font-serif italic text-lg text-neutral-400 group-hover:text-white transition-colors">
-                      0{index + 1}.
-                    </span>
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-white/10 text-white border border-white/20 uppercase tracking-widest">
+                {/* Card Top Strip */}
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
                       {project.lodLevel}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-neutral-900 text-neutral-400 border border-white/10 uppercase">
-                      {project.country === 'Saudi Arabia' ? '🇸🇦 KSA' : '🇦🇪 UAE'}
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-mono bg-slate-800 text-slate-300 border border-slate-700">
+                      {project.category}
                     </span>
                   </div>
 
-                  <span className="text-[11px] text-neutral-400 font-mono flex items-center gap-1">
-                    <MapPin className="w-3 h-3 text-amber-400" />
-                    {project.location}
-                  </span>
+                  <div className="flex items-center gap-1.5 text-xs text-amber-400 font-mono font-medium">
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span>{project.location}</span>
+                  </div>
                 </div>
 
                 {/* Project Title & Client */}
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-neutral-200 transition-colors tracking-tight font-serif italic">
+                  <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors tracking-tight">
                     {project.title}
                   </h3>
-                  <p className="text-xs font-mono text-neutral-400 mt-1 uppercase tracking-wider">{project.subtitle}</p>
-                  {project.client && (
-                    <p className="text-xs text-neutral-400 mt-1">
-                      <span className="text-neutral-500 font-mono uppercase tracking-wider text-[10px]">Client:</span> {project.client}
-                    </p>
-                  )}
+                  <div className="text-xs text-slate-400 font-medium mt-1">
+                    {project.client ? <span className="text-slate-300">Client: {project.client} • </span> : null}
+                    <span className="text-slate-400">Role: {project.role}</span>
+                  </div>
                 </div>
 
-                {/* Scope Preview */}
-                <p className="text-xs text-neutral-400 leading-relaxed line-clamp-2 font-light">
+                {/* Scope Description */}
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal">
                   {project.scope}
                 </p>
 
+                {/* Key Achievements Bullet Highlights */}
+                <div className="space-y-1.5 pt-2 border-t border-slate-800">
+                  <div className="text-[11px] uppercase font-mono text-slate-400 font-semibold">Key Achievements:</div>
+                  {project.keyAchievements.slice(0, 2).map((ach, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-xs text-slate-300">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                      <span>{ach}</span>
+                    </div>
+                  ))}
+                </div>
+
                 {/* Disciplines Chips */}
-                <div className="flex flex-wrap gap-1.5 pt-2">
+                <div className="pt-2 flex flex-wrap gap-1.5">
                   {project.disciplines.map((disc, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-0.5 rounded text-[10px] font-mono bg-neutral-900 text-neutral-300 border border-white/10"
+                      className="px-2.5 py-0.5 rounded-md text-[11px] font-mono bg-slate-800 text-slate-300 border border-slate-700/80"
                     >
                       {disc}
                     </span>
                   ))}
                 </div>
 
-                {/* Key Deliverable Highlights */}
-                <div className="p-3.5 rounded-xl bg-neutral-950 border border-white/10 space-y-1.5 text-xs text-neutral-300">
-                  <div className="text-[9px] uppercase font-mono text-neutral-500 tracking-wider">Key Achievements:</div>
-                  {project.keyAchievements.slice(0, 2).map((ach, idx) => (
-                    <div key={idx} className="flex items-start gap-1.5 text-[11px] text-neutral-300 font-light">
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                      <span className="line-clamp-1">{ach}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
 
-              {/* Bottom Action Strip */}
-              <div className="pt-5 mt-5 border-t border-white/10 flex items-center justify-between text-xs">
-                <div className="flex items-center gap-1.5 text-neutral-400 font-mono text-[10px] uppercase tracking-wider">
-                  <span>{project.role}</span>
+              {/* Card Footer Actions */}
+              <div className="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between">
+                <div className="text-[11px] font-mono text-slate-400">
+                  Timeline: <span className="text-slate-200 font-semibold">{project.period || 'Completed'}</span>
                 </div>
 
-                <div className="flex items-center gap-1.5 font-mono uppercase tracking-widest text-[10px] font-bold text-white group-hover:translate-x-1 transition-transform">
-                  <span>View Details</span>
+                <button
+                  onClick={() => onSelectProject(project)}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-800 hover:bg-cyan-500 text-slate-200 hover:text-slate-950 text-xs font-semibold uppercase tracking-wider transition-all shadow-sm active:scale-95 cursor-pointer"
+                >
+                  <span>Deep-Dive Specs</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </div>
+                </button>
               </div>
 
             </div>

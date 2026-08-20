@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { SectionDivider } from './components/SectionDivider';
 import { BimViewerClashExplorer } from './components/BimViewerClashExplorer';
+import { BimAssemblyStack } from './components/BimAssemblyStack';
 import { ProjectsShowcase } from './components/ProjectsShowcase';
 import { ProjectModal } from './components/ProjectModal';
 import { ServicesGrid } from './components/ServicesGrid';
@@ -31,16 +33,49 @@ export default function App() {
           onOpenCvModal={() => setIsCvModalOpen(true)} 
         />
 
+        <SectionDivider 
+          type="hvac" 
+          label="CLASH DETECTION & SPATIAL RESOLUTION" 
+          tag="NAVISWORKS MANAGE" 
+        />
+
         {/* Interactive BIM Coordination & Navisworks Clash Lab */}
         <BimViewerClashExplorer />
+
+        <SectionDivider 
+          type="bim" 
+          label="FEDERATED 3D MULTI-LAYER STACKING" 
+          tag="LOD 200–400" 
+        />
+
+        {/* Multi-Layer 3D BIM Assembly Stack */}
+        <BimAssemblyStack />
+
+        <SectionDivider 
+          type="electrical" 
+          label="GCC GIGA-PROJECTS & RESORTS" 
+          tag="KSA & UAE" 
+        />
 
         {/* Featured Mega-Projects Showcase */}
         <ProjectsShowcase 
           onSelectProject={(proj) => setSelectedProject(proj)} 
         />
 
+        <SectionDivider 
+          type="plumbing" 
+          label="TECHNICAL DISCIPLINES & SERVICES" 
+          tag="ISO 19650" 
+        />
+
         {/* 6 Core MEP BIM Capabilities */}
         <ServicesGrid />
+
+        <SectionDivider 
+          type="fire" 
+          label="CAREER HISTORY & DELIVERABLES" 
+          tag="10+ YEARS EXPERIENCE" 
+        />
 
         {/* Career Experience Timeline */}
         <ExperienceTimeline />

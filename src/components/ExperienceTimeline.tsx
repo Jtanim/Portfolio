@@ -4,117 +4,108 @@ import {
   MapPin, 
   Calendar, 
   CheckCircle, 
-  ChevronRight, 
   Building2, 
   Layers, 
-  TrendingUp,
-  Cpu
+  CheckCircle2
 } from 'lucide-react';
 import { experiences } from '../data/portfolioData';
 
 export const ExperienceTimeline: React.FC = () => {
   return (
-    <section id="experience" className="py-24 bg-[#050505] border-b border-white/10 relative">
-      {/* Background Watermark */}
-      <div className="absolute top-10 left-10 opacity-[0.02] select-none pointer-events-none hidden md:block">
-        <span className="text-[280px] font-black leading-none tracking-tighter text-white">
-          CAREER
-        </span>
-      </div>
+    <section id="experience" className="py-20 bg-[#0B0F19] border-b border-slate-800/80 relative">
+      
+      {/* Background Glow */}
+      <div className="absolute top-1/3 right-10 w-[450px] h-[350px] bg-cyan-500/5 blur-[140px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Bold Typography */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6 pb-8 border-b border-white/10">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-6 border-b border-slate-800">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-white text-[10px] font-mono tracking-[0.25em] uppercase mb-4">
-              <Briefcase className="w-3.5 h-3.5 text-neutral-400" />
-              <span>10+ Years Track Record</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-mono mb-3">
+              <Briefcase className="w-3.5 h-3.5" />
+              <span>10+ Years Career Record</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tighter leading-tight">
-              CAREER TIMELINE.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-500">
-                LEADERSHIP HISTORY.
-              </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              Professional Work History
             </h2>
-            <p className="text-neutral-400 text-sm sm:text-base mt-3 max-w-2xl font-light">
-              Progressive leadership in MEP drafting, 3D BIM modeling, and multidisciplinary coordination across premier engineering consultancies in Riyadh &amp; Dubai.
+            <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl font-normal">
+              Progressive career delivering 3D BIM modeling, clash coordination, and MEP shop drawing packages across leading consultancies in Saudi Arabia and the UAE.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 bg-emerald-950/40 px-4 py-2.5 rounded-xl border border-emerald-800/40 self-start md:self-auto">
+          <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 bg-emerald-950/40 px-4 py-2 rounded-xl border border-emerald-800/40 self-start md:self-auto">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span>Active in Riyadh (Transferable Iqama)</span>
           </div>
         </div>
 
         {/* Timeline Stack */}
-        <div className="space-y-8 relative before:absolute before:inset-0 before:left-4 sm:before:left-8 before:w-[1px] before:bg-white/10 before:z-0">
+        <div className="space-y-8 relative before:absolute before:inset-0 before:left-4 sm:before:left-8 before:w-[2px] before:bg-slate-800 before:z-0">
           {experiences.map((exp, idx) => (
             <div
               key={exp.id}
               className="relative z-10 pl-10 sm:pl-16 group"
             >
               {/* Timeline Node Point */}
-              <div className={`absolute left-2 sm:left-6 -translate-x-1/2 top-7 w-4 h-4 rounded-full border flex items-center justify-center transition-all ${
+              <div className={`absolute left-2 sm:left-6 -translate-x-1/2 top-7 w-4 h-4 rounded-full border-2 flex items-center justify-center transition-all ${
                 exp.isCurrent
-                  ? 'bg-white border-white ring-4 ring-white/20'
-                  : 'bg-neutral-900 border-neutral-700 group-hover:border-white'
+                  ? 'bg-cyan-500 border-cyan-300 ring-4 ring-cyan-500/20 shadow-md shadow-cyan-500/50'
+                  : 'bg-slate-900 border-slate-600 group-hover:border-cyan-400'
               }`}>
-                {exp.isCurrent && <div className="w-1.5 h-1.5 rounded-full bg-black" />}
+                {exp.isCurrent && <div className="w-1.5 h-1.5 rounded-full bg-slate-950" />}
               </div>
 
               {/* Experience Card */}
-              <div className="rounded-2xl bg-[#0a0a0a] border border-white/10 hover:border-white/30 p-7 sm:p-8 shadow-xl transition-all">
+              <div className="rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-cyan-500/40 p-6 sm:p-7 shadow-xl hover:shadow-cyan-950/20 transition-all backdrop-blur-md">
                 
                 {/* Header Information */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-white/10">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
                   <div>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="font-serif italic text-lg text-neutral-500">0{idx + 1}.</span>
-                      <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight font-serif italic">
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
                         {exp.role}
                       </h3>
                       {exp.isCurrent && (
-                        <span className="px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold bg-emerald-950 text-emerald-300 border border-emerald-700/40 uppercase tracking-widest">
+                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
                           Active Role
                         </span>
                       )}
                     </div>
                     
-                    <div className="flex flex-wrap items-center gap-3 mt-2 text-xs text-neutral-300">
-                      <span className="font-semibold text-white flex items-center gap-1 font-mono uppercase tracking-wider text-[11px]">
-                        <Building2 className="w-3.5 h-3.5 text-neutral-400" />
+                    <div className="flex flex-wrap items-center gap-3 mt-1.5 text-xs text-slate-300">
+                      <span className="font-semibold text-white flex items-center gap-1.5">
+                        <Building2 className="w-3.5 h-3.5 text-cyan-400" />
                         {exp.company}
                       </span>
-                      <span className="text-neutral-600">•</span>
-                      <span className="flex items-center gap-1 text-neutral-400 font-mono text-[11px]">
+                      <span className="text-slate-600">•</span>
+                      <span className="flex items-center gap-1 text-slate-400">
                         <MapPin className="w-3.5 h-3.5 text-amber-400" />
                         {exp.location}
                       </span>
                     </div>
                   </div>
 
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-neutral-900 border border-white/10 text-xs font-mono text-neutral-300 self-start md:self-auto">
-                    <Calendar className="w-3.5 h-3.5 text-neutral-400" />
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700 text-xs font-mono text-slate-300 self-start md:self-auto">
+                    <Calendar className="w-3.5 h-3.5 text-cyan-400" />
                     <span>{exp.period}</span>
                   </div>
                 </div>
 
                 {/* Summary */}
-                <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed mt-4 font-light">
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mt-3.5 font-normal">
                   {exp.summary}
                 </p>
 
                 {/* Bullet Highlights */}
-                <div className="mt-5 space-y-2.5">
-                  <h4 className="text-[10px] uppercase font-mono text-neutral-500 font-bold tracking-widest">
-                    Key Deliverables &amp; Impact:
+                <div className="mt-4 space-y-2">
+                  <h4 className="text-[11px] uppercase font-mono text-slate-400 font-semibold tracking-wider">
+                    Key Deliverables &amp; Achievements:
                   </h4>
-                  <div className="grid grid-cols-1 gap-2.5">
+                  <div className="grid grid-cols-1 gap-2">
                     {exp.highlights.map((hl, i) => (
-                      <div key={i} className="flex items-start gap-2.5 text-xs text-neutral-300 leading-relaxed font-light">
-                        <span className="text-white font-bold shrink-0 mt-0.5">›</span>
+                      <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                         <span>{hl}</span>
                       </div>
                     ))}
@@ -122,13 +113,13 @@ export const ExperienceTimeline: React.FC = () => {
                 </div>
 
                 {/* Software Used in this role */}
-                <div className="pt-5 mt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+                <div className="pt-4 mt-5 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap items-center gap-1.5">
-                    <span className="text-[9px] font-mono text-neutral-500 mr-1 tracking-widest">STACK:</span>
+                    <span className="text-[11px] font-mono text-slate-400 mr-1 font-semibold">STACK:</span>
                     {exp.software.map((sw, i) => (
                       <span
                         key={i}
-                        className="px-2 py-0.5 rounded text-[10px] font-mono bg-neutral-900 text-white border border-white/10"
+                        className="px-2 py-0.5 rounded-md text-[11px] font-mono bg-slate-800 text-slate-300 border border-slate-700"
                       >
                         {sw}
                       </span>
@@ -139,7 +130,7 @@ export const ExperienceTimeline: React.FC = () => {
                     {exp.disciplines.map((disc, i) => (
                       <span
                         key={i}
-                        className="px-2 py-0.5 rounded text-[10px] font-mono bg-neutral-950 text-neutral-400 border border-white/5"
+                        className="px-2 py-0.5 rounded-md text-[11px] font-mono bg-cyan-950/40 text-cyan-300 border border-cyan-800/40"
                       >
                         {disc}
                       </span>

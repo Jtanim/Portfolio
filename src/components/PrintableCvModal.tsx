@@ -15,7 +15,8 @@ import {
   GraduationCap, 
   Cpu, 
   FileText,
-  ShieldCheck
+  ShieldCheck,
+  CheckCircle2
 } from 'lucide-react';
 import { 
   personalInfo, 
@@ -44,7 +45,7 @@ export const PrintableCvModal: React.FC<PrintableCvModalProps> = ({ isOpen, onCl
   const handleCopyText = () => {
     const cvText = `
 IQBAL HUSSAIN
-MEP BIM COORDINATOR | SENIOR MEP DRAFTSMAN
+SENIOR MEP BIM COORDINATOR & DRAFTSMAN
 Location: ${personalInfo.location} | Phone: ${personalInfo.phone} | Email: ${personalInfo.email}
 LinkedIn: ${personalInfo.linkedIn} | Nationality: ${personalInfo.nationality} | Status: ${personalInfo.iqamaStatus}
 
@@ -79,27 +80,27 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto bg-black/90 backdrop-blur-md animate-fadeIn print:p-0 print:bg-white print:static print:overflow-visible">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto bg-slate-950/80 backdrop-blur-md animate-fadeIn print:p-0 print:bg-white print:static print:overflow-visible">
       <div 
-        className="relative w-full max-w-5xl bg-[#0a0a0a] text-neutral-100 border border-white/15 rounded-2xl shadow-2xl overflow-hidden my-4 max-h-[92vh] flex flex-col print:border-none print:shadow-none print:max-h-none print:w-full print:bg-white print:text-black"
+        className="relative w-full max-w-5xl bg-[#0F1626] text-slate-100 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden my-4 max-h-[92vh] flex flex-col print:border-none print:shadow-none print:max-h-none print:w-full print:bg-white print:text-black"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Actions Bar (Hidden during actual print) */}
-        <div className="p-4 bg-neutral-950 border-b border-white/10 flex items-center justify-between print:hidden">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-white font-bold font-mono text-sm">
+        <div className="p-4 bg-slate-900/95 border-b border-slate-800 flex items-center justify-between print:hidden">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-300 font-bold font-mono text-sm">
               IH
             </div>
             <div>
-              <span className="text-xs font-bold text-white font-mono uppercase tracking-wider">Curriculum Vitae — Iqbal Hussain</span>
-              <span className="block text-[10px] text-emerald-400 font-mono uppercase tracking-widest">Transferable Iqama • KSA Ready</span>
+              <span className="text-xs font-bold text-white font-mono uppercase tracking-wider">Executive CV — Iqbal Hussain</span>
+              <span className="block text-[11px] text-emerald-400 font-medium">Transferable Iqama • Riyadh, Saudi Arabia</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               onClick={handleCopyText}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-xs font-mono uppercase tracking-wider text-neutral-300 border border-white/10 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono uppercase tracking-wider text-slate-300 border border-slate-700 transition-colors cursor-pointer"
               title="Copy plain text CV to clipboard"
             >
               {copied ? (
@@ -109,7 +110,7 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
                 </>
               ) : (
                 <>
-                  <Copy className="w-3.5 h-3.5 text-neutral-400" />
+                  <Copy className="w-3.5 h-3.5 text-slate-400" />
                   <span>Copy Text</span>
                 </>
               )}
@@ -117,15 +118,15 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
 
             <button
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white hover:bg-neutral-200 text-xs font-mono font-bold uppercase tracking-wider text-black transition-all shadow-md active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-xs font-mono font-bold uppercase tracking-wider text-slate-950 transition-all shadow-md active:scale-95 cursor-pointer"
             >
               <Printer className="w-3.5 h-3.5" />
-              <span>Print / PDF</span>
+              <span>Print / Save PDF</span>
             </button>
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-neutral-400 hover:text-white border border-white/10 transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white border border-slate-700 transition-colors cursor-pointer"
               aria-label="Close CV preview"
             >
               <X className="w-5 h-5" />
@@ -133,178 +134,125 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
           </div>
         </div>
 
-        {/* Scrollable Printable Document Paper Canvas */}
-        <div className="p-6 sm:p-10 overflow-y-auto space-y-8 bg-[#050505] text-neutral-200 print:p-8 print:bg-white print:text-black font-sans">
+        {/* Scrollable Printable Document Canvas */}
+        <div className="p-6 sm:p-10 overflow-y-auto space-y-6 bg-[#0B0F19] text-slate-200 print:p-8 print:bg-white print:text-black font-sans">
           
           {/* CV Header */}
-          <div className="border-b-2 border-white/20 pb-6 text-center space-y-2 print:border-black">
-            <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase print:text-black">
-              {personalInfo.name}
+          <div className="border-b-2 border-slate-700/80 pb-5 text-center space-y-2 print:border-black">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight print:text-black">
+              IQBAL HUSSAIN
             </h1>
-            <p className="text-xs sm:text-sm font-bold font-mono text-neutral-300 uppercase tracking-[0.2em] print:text-gray-800">
-              {personalInfo.title}
-            </p>
-            
-            <div className="flex flex-wrap items-center justify-center gap-y-1 gap-x-4 text-xs font-mono text-neutral-400 pt-2 print:text-gray-700">
-              <span className="flex items-center gap-1"><MapPin className="w-3 h-3 text-amber-400 print:hidden" /> {personalInfo.location}</span>
-              <span>•</span>
-              <a href={`tel:${personalInfo.phone}`} className="flex items-center gap-1 hover:text-white"><Phone className="w-3 h-3 text-neutral-400 print:hidden" /> {personalInfo.phone}</a>
-              <span>•</span>
-              <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-1 hover:text-white"><Mail className="w-3 h-3 text-neutral-400 print:hidden" /> {personalInfo.email}</a>
-              <span>•</span>
-              <span className="text-neutral-300 print:text-black">LinkedIn: {personalInfo.linkedIn}</span>
+            <div className="text-sm font-semibold text-cyan-400 uppercase tracking-wider print:text-gray-800">
+              SENIOR MEP BIM COORDINATOR &amp; DRAFTSMAN
             </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-2 pt-1 text-[11px] font-mono text-neutral-400 print:text-gray-600">
-              <span>Nationality: <strong className="text-white print:text-black">{personalInfo.nationality}</strong></span>
+            
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs font-mono text-slate-300 print:text-gray-700">
+              <span className="flex items-center gap-1">
+                <MapPin className="w-3.5 h-3.5 text-amber-400" />
+                {personalInfo.location}
+              </span>
               <span>•</span>
-              <span className="text-emerald-400 font-semibold print:text-black">Status: <strong>Transferable Iqama</strong></span>
+              <span className="flex items-center gap-1">
+                <Phone className="w-3.5 h-3.5 text-cyan-400" />
+                {personalInfo.phone}
+              </span>
+              <span>•</span>
+              <span className="flex items-center gap-1">
+                <Mail className="w-3.5 h-3.5 text-cyan-400" />
+                {personalInfo.email}
+              </span>
+              <span>•</span>
+              <span className="text-emerald-400 font-semibold print:text-emerald-800">
+                Transferable Iqama
+              </span>
             </div>
           </div>
 
-          {/* Professional Summary */}
+          {/* Executive Summary */}
           <div className="space-y-2">
-            <h2 className="text-xs font-mono uppercase font-bold text-white tracking-[0.25em] border-b border-white/10 pb-1 print:text-black print:border-black">
-              PROFESSIONAL SUMMARY
+            <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-slate-800 print:border-gray-300 pb-1">
+              Executive Summary
             </h2>
-            <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-light print:text-black">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal print:text-gray-800">
               {personalInfo.summary}
             </p>
           </div>
 
-          {/* Core Skills Matrix (3 Columns) */}
-          <div className="space-y-2">
-            <h2 className="text-xs font-mono uppercase font-bold text-white tracking-[0.25em] border-b border-white/10 pb-1 print:text-black print:border-black">
-              CORE SKILLS
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-1.5 text-xs text-neutral-300 print:text-black font-light">
-              {[
-                'MEP BIM Coordination & Modeling',
-                'Revit MEP (LOD 200, 300 & 400)',
-                'AutoCAD MEP Drafting',
-                'Navisworks Manage & Clash Detection',
-                'Autodesk BIM 360 & ACC',
-                'BIM Level 2 Workflows',
-                'BIM Execution Plan (BEP)',
-                'ISO 19650 Information Management',
-                'Common Data Environment (CDE)',
-                'HVAC Ducting & Chilled Water Piping',
-                'Plumbing & Drainage Systems',
-                'Electrical Power, Lighting & Distribution',
-                'Fire Fighting & Fire Alarm Systems',
-                'ELV / Low Current Systems',
-                'IFC Standards & Drawing Interpretation',
-                'As-Built Drawings',
-                'BOQ & Material Take-Offs',
-                'RFI Preparation & Resolution',
-                'Shop Drawing Submission & Approval',
-                'Architectural & Structural Coordination',
-                'SBC, SEC & Civil Defense Compliance',
-                'Microsoft Office Suite',
-              ].map((skill, idx) => (
-                <div key={idx} className="flex items-center gap-1.5">
-                  <span className="text-white font-bold print:text-black">•</span>
-                  <span>{skill}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Professional Experience */}
           <div className="space-y-4">
-            <h2 className="text-xs font-mono uppercase font-bold text-white tracking-[0.25em] border-b border-white/10 pb-1 print:text-black print:border-black">
-              PROFESSIONAL EXPERIENCE
+            <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-slate-800 print:border-gray-300 pb-1">
+              Professional Work Experience
             </h2>
-
-            {experiences.map((exp) => (
-              <div key={exp.id} className="space-y-1.5">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs">
-                  <div>
-                    <strong className="text-white text-sm font-serif italic print:text-black">{exp.role}</strong>
-                    <span className="text-neutral-300 font-semibold ml-2 font-mono uppercase text-[11px] print:text-gray-800">| {exp.company}</span>
-                    <span className="text-neutral-500 ml-1 font-mono text-[11px] print:text-gray-600">| {exp.location}</span>
+            <div className="space-y-4">
+              {experiences.map((exp) => (
+                <div key={exp.id} className="space-y-1.5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm">
+                    <div>
+                      <strong className="text-white font-bold print:text-black">{exp.role}</strong>
+                      <span className="text-cyan-300 font-medium print:text-gray-800"> — {exp.company}</span>
+                    </div>
+                    <span className="text-xs font-mono text-slate-400 print:text-gray-600">
+                      {exp.location} | {exp.period}
+                    </span>
                   </div>
-                  <span className="font-mono text-neutral-400 text-[11px] print:text-gray-700">{exp.period}</span>
+                  <ul className="space-y-1 text-xs text-slate-300 print:text-gray-800">
+                    {exp.highlights.map((h, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-cyan-400 print:text-black shrink-0">•</span>
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-
-                <ul className="space-y-1 text-xs text-neutral-300 pl-3 list-disc print:text-black font-light">
-                  {exp.highlights.map((hl, i) => (
-                    <li key={i} className="leading-relaxed">
-                      {hl}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          {/* Selected Projects */}
+          {/* Flagship Projects */}
           <div className="space-y-3">
-            <h2 className="text-xs font-mono uppercase font-bold text-white tracking-[0.25em] border-b border-white/10 pb-1 print:text-black print:border-black">
-              SELECTED PROJECTS
+            <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-slate-800 print:border-gray-300 pb-1">
+              Flagship Project Deliverables
             </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-              {selectedProjects.map((prj) => (
-                <div key={prj.id} className="p-3.5 rounded-xl bg-neutral-950 border border-white/10 space-y-1 print:border print:border-gray-300 print:bg-white">
-                  <div className="font-bold text-white font-serif italic print:text-black">{prj.title}</div>
-                  <div className="text-[10px] text-neutral-400 font-mono uppercase tracking-wider print:text-gray-700">
-                    {prj.client ? `Client: ${prj.client} | ` : ''}{prj.location}
-                  </div>
-                  <div className="text-[11px] text-neutral-300 print:text-gray-800 font-medium font-mono">
-                    {prj.category} | Role: {prj.role}
-                  </div>
-                  <div className="text-[11px] text-neutral-400 font-light print:text-black">
-                    <strong className="text-neutral-200">Scope:</strong> {prj.scope}
-                  </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {selectedProjects.map((p) => (
+                <div key={p.id} className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 print:bg-gray-50 print:border-gray-200 text-xs space-y-1">
+                  <div className="font-bold text-white print:text-black">{p.title}</div>
+                  <div className="text-[11px] text-slate-400 font-mono print:text-gray-600">{p.location} • {p.role}</div>
+                  <div className="text-slate-300 print:text-gray-800">{p.scope}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Certifications */}
-          <div className="space-y-2">
-            <h2 className="text-xs font-mono uppercase font-bold text-white tracking-[0.25em] border-b border-white/10 pb-1 print:text-black print:border-black">
-              CERTIFICATIONS
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-neutral-300 print:text-black font-light">
-              {certifications.map((c) => (
-                <div key={c.id} className="flex items-start gap-2">
-                  <span className="text-white font-bold print:text-black">•</span>
-                  <div>
-                    <strong className="text-white print:text-black">{c.title}</strong> — <span className="text-neutral-400 print:text-gray-700 font-mono text-[11px]">{c.issuer}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Education & Languages */}
+          {/* Certifications & Education */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
             <div className="space-y-2">
-              <h2 className="text-xs font-mono uppercase font-bold text-white tracking-[0.25em] border-b border-white/10 pb-1 print:text-black print:border-black">
-                EDUCATION
+              <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-slate-800 print:border-gray-300 pb-1">
+                Accreditations &amp; Certifications
               </h2>
-              {educationList.map((edu, idx) => (
-                <div key={idx} className="text-xs space-y-0.5">
-                  <strong className="text-white block font-serif italic print:text-black">{edu.degree}</strong>
-                  <div className="text-neutral-400 print:text-gray-700 font-mono text-[11px]">
-                    {edu.institution} | {edu.period}
-                  </div>
-                </div>
-              ))}
+              <ul className="space-y-1.5 text-xs text-slate-300 print:text-gray-800">
+                {certifications.map((c) => (
+                  <li key={c.id} className="flex items-start gap-1.5">
+                    <span className="text-emerald-400 print:text-black">✓</span>
+                    <span><strong>{c.title}</strong> — {c.issuer}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <div className="space-y-2">
-              <h2 className="text-xs font-mono uppercase font-bold text-white tracking-[0.25em] border-b border-white/10 pb-1 print:text-black print:border-black">
-                SOFTWARE &amp; LANGUAGES
+              <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-slate-800 print:border-gray-300 pb-1">
+                Education &amp; Technical Skills
               </h2>
-              <div className="text-xs space-y-1.5 text-neutral-300 print:text-black font-light">
-                <div>
-                  <strong className="text-white print:text-black">Software:</strong> Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction Cloud (ACC), Primavera P6, Microsoft Word, Microsoft Excel, Microsoft Outlook.
-                </div>
-                <div>
-                  <strong className="text-white print:text-black">Languages:</strong> English (Professional Working Proficiency) | Arabic (Conversational / Working Level) | Urdu (Native).
+              <div className="space-y-2 text-xs text-slate-300 print:text-gray-800">
+                {educationList.map((edu, idx) => (
+                  <div key={idx}>
+                    <div className="font-bold text-white print:text-black">{edu.degree}</div>
+                    <div className="text-slate-400 print:text-gray-600">{edu.institution} ({edu.period})</div>
+                  </div>
+                ))}
+                <div className="pt-2 border-t border-slate-800 print:border-gray-200">
+                  <strong className="text-white print:text-black">Core Stack:</strong> Revit MEP (LOD 400), AutoCAD MEP, Navisworks Manage, BIM 360 / ACC, ISO 19650 CDE, SBC/NFPA Codes.
                 </div>
               </div>
             </div>
@@ -312,19 +260,10 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
 
         </div>
 
-        {/* Footer */}
-        <div className="p-4 bg-neutral-950 border-t border-white/10 flex items-center justify-between print:hidden">
-          <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-500">
-            Iqbal Hussain • Verified Resume (Transferable Iqama)
-          </span>
-          <button
-            onClick={onClose}
-            className="px-4 py-1.5 rounded-lg bg-white text-black text-xs font-mono font-bold uppercase tracking-wider hover:bg-neutral-200 cursor-pointer"
-          >
-            Close Preview
-          </button>
+        {/* Print Notice Footer */}
+        <div className="p-3 bg-slate-900 border-t border-slate-800 text-center text-[11px] text-slate-400 font-mono print:hidden flex items-center justify-center gap-2">
+          <span>Formatted for direct ATS scanning and A4/Letter printer output</span>
         </div>
-
       </div>
     </div>
   );

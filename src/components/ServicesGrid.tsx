@@ -10,12 +10,12 @@ import {
   FileSpreadsheet,
   Workflow,
   Sparkles,
-  SearchCheck,
   Building,
   Zap,
   Wind,
   Droplets,
-  Flame
+  Flame,
+  CheckCircle
 } from 'lucide-react';
 
 export const ServicesGrid: React.FC = () => {
@@ -28,17 +28,19 @@ export const ServicesGrid: React.FC = () => {
         'Clash detection, interference resolution, and spatial coordination between MEP, Architectural, and Structural models to prevent costly on-site rebuilds.',
       metrics: '~20% Reduction in Site Revisions',
       tools: ['Navisworks Manage', 'Revit MEP', 'Clash Matrix'],
-      color: 'cyan',
+      accentColor: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/30',
+      badgeColor: 'text-cyan-300 border-cyan-500/30 bg-cyan-500/10',
     },
     {
       icon: Layers,
       title: 'LOD 200–400 BIM Modeling',
-      category: 'Detailed 3D Modeling',
+      category: 'Parametric 3D Modeling',
       description:
         'High-fidelity parametric modeling of mechanical ductwork, chilled water piping, sanitary drainage, cable containment, and fire protection systems.',
       metrics: 'LOD 200, 300 & 400 Precision',
       tools: ['Revit MEP', 'Parametric Families', 'IFC OpenBIM'],
-      color: 'amber',
+      accentColor: 'text-amber-400 bg-amber-500/10 border-amber-500/30',
+      badgeColor: 'text-amber-300 border-amber-500/30 bg-amber-500/10',
     },
     {
       icon: FileText,
@@ -48,17 +50,19 @@ export const ServicesGrid: React.FC = () => {
         'Authoring fully detailed, dimensioned, and annotated 2D/3D shop drawings, riser diagrams, builder work openings, and installation layouts.',
       metrics: '550+ Shop Drawings Delivered',
       tools: ['AutoCAD MEP', 'Revit Drafting', 'Sheet Automation'],
-      color: 'emerald',
+      accentColor: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30',
+      badgeColor: 'text-emerald-300 border-emerald-500/30 bg-emerald-500/10',
     },
     {
       icon: ShieldCheck,
       title: 'ISO 19650 & CDE Management',
-      category: 'Certified Information Manager',
+      category: 'Information Governance',
       description:
         'Implementation of BIM Execution Plans (BEP), information container workflows (WIP, Shared, Published, Archived), and standard naming conventions.',
       metrics: 'Level 3 Expert Certified',
       tools: ['Autodesk BIM 360', 'ACC', 'Plannerly BEP'],
-      color: 'cyan',
+      accentColor: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/30',
+      badgeColor: 'text-cyan-300 border-cyan-500/30 bg-cyan-500/10',
     },
     {
       icon: Building,
@@ -68,7 +72,8 @@ export const ServicesGrid: React.FC = () => {
         'Preparation of technical submission packages compliant with Saudi Building Code (SBC), Saudi Electricity Company (SEC), and Saudi Civil Defense.',
       metrics: '15–25% Faster Approval Cycles',
       tools: ['SBC Codes', 'SEC Rules', 'Saudi Civil Defense'],
-      color: 'amber',
+      accentColor: 'text-amber-400 bg-amber-500/10 border-amber-500/30',
+      badgeColor: 'text-amber-300 border-amber-500/30 bg-amber-500/10',
     },
     {
       icon: Calculator,
@@ -78,85 +83,80 @@ export const ServicesGrid: React.FC = () => {
         'Extracting automated material take-offs (MTOs) and Bills of Quantities directly from coordinated 3D BIM models, eliminating manual calculation errors.',
       metrics: 'Direct Extraction from Model',
       tools: ['Revit Schedules', 'Excel Automation', 'As-Built CAD'],
-      color: 'emerald',
+      accentColor: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30',
+      badgeColor: 'text-emerald-300 border-emerald-500/30 bg-emerald-500/10',
     },
   ];
 
   return (
-    <section id="capabilities" className="py-24 bg-[#050505] border-b border-white/10 relative">
-      {/* Background Watermark */}
-      <div className="absolute top-10 right-10 opacity-[0.02] select-none pointer-events-none hidden md:block">
-        <span className="text-[280px] font-black leading-none tracking-tighter text-white">
-          EXPERTISE
-        </span>
-      </div>
+    <section id="capabilities" className="py-20 bg-[#0E131F] border-b border-slate-800/80 relative">
+      
+      {/* Subtle Background Glow */}
+      <div className="absolute top-1/2 left-1/3 w-[450px] h-[300px] bg-cyan-500/5 blur-[130px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Bold Typography */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-white text-[10px] font-mono tracking-[0.25em] uppercase">
-            <Workflow className="w-3.5 h-3.5 text-neutral-400" />
-            <span>Engineering Discipline</span>
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-mono">
+            <Workflow className="w-3.5 h-3.5" />
+            <span>Technical Disciplines &amp; Services</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tighter leading-tight">
-            CORE CAPABILITIES.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-500">
-              TECHNICAL EXECUTION.
-            </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            Core MEP BIM Disciplines
           </h2>
-          <p className="text-neutral-400 text-sm sm:text-base font-light">
-            Providing full lifecycle MEP BIM solutions from early schematic spatial zoning to final authority handover dossiers.
+          <p className="text-slate-300 text-sm sm:text-base font-normal">
+            Providing end-to-end MEP BIM execution from schematic spatial zoning and clash resolution to authority approvals and As-Built handover.
           </p>
         </div>
 
         {/* 6 Grid Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {capabilities.map((cap, idx) => {
             const Icon = cap.icon;
             return (
               <div
                 key={idx}
-                className="rounded-2xl bg-[#0a0a0a] border border-white/10 hover:border-white/30 p-7 shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                className="rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-cyan-500/40 p-6 sm:p-7 shadow-xl hover:shadow-cyan-950/20 transition-all duration-300 flex flex-col justify-between group backdrop-blur-md"
               >
                 <div className="space-y-4">
-                  {/* Index & Category */}
+                  {/* Top Bar: Icon & Category */}
                   <div className="flex items-center justify-between">
-                    <span className="font-serif italic text-xl text-neutral-500 group-hover:text-white transition-colors">
-                      0{idx + 1}.
-                    </span>
-                    <span className="text-[9px] font-mono uppercase tracking-widest px-2.5 py-1 rounded bg-neutral-900 text-neutral-400 border border-white/10">
+                    <div className={`w-10 h-10 rounded-xl border flex items-center justify-center ${cap.accentColor}`}>
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className={`text-[11px] font-mono font-medium px-2.5 py-0.5 rounded-full border ${cap.badgeColor}`}>
                       {cap.category}
                     </span>
                   </div>
 
                   {/* Title & Description */}
                   <div>
-                    <h3 className="text-lg font-bold text-white group-hover:text-neutral-200 transition-colors font-mono tracking-tight">
+                    <h3 className="text-base font-bold text-white group-hover:text-cyan-300 transition-colors tracking-tight">
                       {cap.title}
                     </h3>
-                    <p className="text-xs text-neutral-400 mt-2 leading-relaxed font-light">
+                    <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed font-normal">
                       {cap.description}
                     </p>
                   </div>
 
-                  {/* Key Metric Indicator */}
-                  <div className="px-3.5 py-2.5 rounded-xl bg-neutral-950 border border-white/10 text-xs font-mono text-white flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>{cap.metrics}</span>
+                  {/* Tools List */}
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {cap.tools.map((t, ti) => (
+                      <span key={ti} className="px-2 py-0.5 rounded-md text-[11px] font-mono bg-slate-800 text-slate-300 border border-slate-700">
+                        {t}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
-                {/* Software tags */}
-                <div className="pt-4 mt-5 border-t border-white/10 flex flex-wrap gap-1.5">
-                  {cap.tools.map((t, i) => (
-                    <span
-                      key={i}
-                      className="px-2 py-0.5 rounded text-[10px] font-mono bg-neutral-900 text-neutral-400 border border-white/10"
-                    >
-                      {t}
-                    </span>
-                  ))}
+                {/* Measurable Metric Footer */}
+                <div className="pt-4 mt-5 border-t border-slate-800 flex items-center justify-between text-xs">
+                  <span className="text-slate-400 font-medium">Outcome:</span>
+                  <span className="text-emerald-400 font-mono font-semibold flex items-center gap-1">
+                    <CheckCircle className="w-3.5 h-3.5" />
+                    {cap.metrics}
+                  </span>
                 </div>
               </div>
             );

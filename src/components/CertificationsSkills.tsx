@@ -11,7 +11,8 @@ import {
   BookOpen,
   Sparkles,
   Layers,
-  FileCheck
+  FileCheck,
+  CheckCircle
 } from 'lucide-react';
 import { 
   certifications, 
@@ -31,56 +32,50 @@ export const CertificationsSkills: React.FC = () => {
   });
 
   return (
-    <section id="certifications" className="py-24 bg-[#050505] border-b border-white/10 relative">
-      {/* Background Watermark */}
-      <div className="absolute top-10 right-10 opacity-[0.02] select-none pointer-events-none hidden md:block">
-        <span className="text-[280px] font-black leading-none tracking-tighter text-white">
-          CREDS
-        </span>
-      </div>
+    <section id="certifications" className="py-20 bg-[#0E131F] border-b border-slate-800/80 relative">
+      
+      {/* Background Glow */}
+      <div className="absolute top-1/3 left-10 w-[400px] h-[300px] bg-emerald-500/5 blur-[130px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Bold Typography */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6 pb-8 border-b border-white/10">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-6 border-b border-slate-800">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-white text-[10px] font-mono tracking-[0.25em] uppercase mb-4">
-              <Award className="w-3.5 h-3.5 text-neutral-400" />
-              <span>Verified Qualifications</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-mono mb-3">
+              <Award className="w-3.5 h-3.5" />
+              <span>Verified Credentials &amp; Standards</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tighter leading-tight">
-              CERTIFICATIONS &amp; STACK.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-500">
-                EDUCATION &amp; STANDARDS.
-              </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              Certifications &amp; Technical Stack
             </h2>
-            <p className="text-neutral-400 text-sm sm:text-base mt-3 max-w-2xl font-light">
+            <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl font-normal">
               Accredited ISO 19650 Information Management expertise combined with Mechanical Engineering foundations and Autodesk mastery.
             </p>
           </div>
 
-          <div className="flex items-center gap-1.5 bg-[#0a0a0a] p-1.5 rounded-xl border border-white/10 text-xs font-mono self-start md:self-auto">
+          <div className="flex items-center gap-1.5 bg-slate-900/90 p-1.5 rounded-xl border border-slate-700/80 text-xs font-mono self-start md:self-auto">
             <button
               onClick={() => setCertFilter('all')}
-              className={`px-3 py-1 rounded-lg uppercase tracking-wider ${certFilter === 'all' ? 'bg-white text-black font-bold' : 'text-neutral-400'}`}
+              className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${certFilter === 'all' ? 'bg-cyan-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-white'}`}
             >
-              All (8)
+              All ({certifications.length})
             </button>
             <button
               onClick={() => setCertFilter('iso')}
-              className={`px-3 py-1 rounded-lg uppercase tracking-wider ${certFilter === 'iso' ? 'bg-white text-black font-bold' : 'text-neutral-400'}`}
+              className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${certFilter === 'iso' ? 'bg-cyan-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-white'}`}
             >
               ISO 19650
             </button>
             <button
               onClick={() => setCertFilter('cad')}
-              className={`px-3 py-1 rounded-lg uppercase tracking-wider ${certFilter === 'cad' ? 'bg-white text-black font-bold' : 'text-neutral-400'}`}
+              className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${certFilter === 'cad' ? 'bg-cyan-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-white'}`}
             >
               Revit/CAD
             </button>
             <button
               onClick={() => setCertFilter('pm')}
-              className={`px-3 py-1 rounded-lg uppercase tracking-wider ${certFilter === 'pm' ? 'bg-white text-black font-bold' : 'text-neutral-400'}`}
+              className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${certFilter === 'pm' ? 'bg-cyan-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-white'}`}
             >
               P6 &amp; PM
             </button>
@@ -88,108 +83,104 @@ export const CertificationsSkills: React.FC = () => {
         </div>
 
         {/* Certifications Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
           {filteredCerts.map((cert) => (
             <div
               key={cert.id}
-              className="rounded-2xl bg-[#0a0a0a] border border-white/10 hover:border-white/30 p-6 shadow-lg flex flex-col justify-between transition-all group"
+              className="rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-cyan-500/40 p-5 sm:p-6 shadow-xl hover:shadow-cyan-950/20 flex flex-col justify-between transition-all group backdrop-blur-md"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/15 flex items-center justify-center text-white">
+                  <div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
                     <Award className="w-4 h-4" />
                   </div>
-                  <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest">
-                    ACCREDITED
+                  <span className="text-[10px] font-mono text-emerald-400 font-semibold uppercase px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                    Active
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-bold text-white group-hover:text-neutral-200 transition-colors leading-snug font-serif italic">
+                  <h3 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors leading-snug">
                     {cert.title}
                   </h3>
-                  <p className="text-[11px] text-neutral-400 mt-1 font-mono uppercase tracking-wider">{cert.issuer}</p>
+                  <p className="text-xs text-slate-400 mt-1 font-mono">{cert.issuer}</p>
                 </div>
 
-                <div className="space-y-1.5 pt-2 border-t border-white/10">
+                <div className="space-y-1.5 pt-2 border-t border-slate-800">
                   {cert.skills.map((sk, idx) => (
-                    <div key={idx} className="flex items-center gap-1.5 text-[11px] text-neutral-300 font-light">
-                      <span className="text-white text-xs">✓</span>
+                    <div key={idx} className="flex items-center gap-1.5 text-xs text-slate-300">
+                      <CheckCircle className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                       <span>{sk}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-3.5 mt-3.5 border-t border-white/10 text-[9px] font-mono uppercase tracking-widest text-neutral-500 flex items-center justify-between">
+              <div className="pt-3.5 mt-3.5 border-t border-slate-800 text-[10px] font-mono uppercase text-slate-400 flex items-center justify-between">
                 <span>{cert.category}</span>
-                <span className="text-emerald-400 font-bold">Active</span>
+                <span className="text-cyan-300 font-semibold">Verified</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Two Columns: Left Software & Standards, Right Education & Languages */}
+        {/* Two Columns: Software & Standards, Education & Languages */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Software Proficiency Bars & Standards */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 space-y-6">
             
             {/* Software Proficiency Stack */}
-            <div className="rounded-2xl bg-[#0a0a0a] border border-white/10 p-7 shadow-xl space-y-5">
-              <div className="flex items-center justify-between pb-3 border-b border-white/10">
+            <div className="rounded-2xl bg-slate-900/80 border border-slate-700/80 p-6 sm:p-7 shadow-xl space-y-4 backdrop-blur-md">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-800">
                 <div className="flex items-center gap-2">
-                  <Cpu className="w-4 h-4 text-white" />
-                  <h3 className="text-sm font-bold text-white font-mono uppercase tracking-wider">
-                    Software Stack &amp; BIM Capability
+                  <Cpu className="w-4 h-4 text-cyan-400" />
+                  <h3 className="text-sm font-bold text-white">
+                    Core Software Mastery
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest">10+ Years Practice</span>
+                <span className="text-xs font-mono text-slate-400">10+ Years Daily Execution</span>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3.5">
                 {softwareSkills.map((sw, idx) => (
                   <div key={idx} className="space-y-1.5">
                     <div className="flex items-center justify-between text-xs">
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-white font-mono">{sw.name}</span>
-                        <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-neutral-900 text-neutral-400 border border-white/10 uppercase">
-                          {sw.lod}
-                        </span>
-                      </div>
-                      <span className="font-mono text-white font-bold">{sw.level}%</span>
+                      <span className="font-semibold text-white">{sw.name}</span>
+                      <span className="font-mono text-cyan-300 font-bold">{sw.level}%</span>
                     </div>
-                    
-                    {/* Progress Track */}
-                    <div className="h-1.5 w-full bg-neutral-900 rounded-full overflow-hidden border border-white/10">
+                    <div className="h-2 rounded-full bg-slate-800 overflow-hidden border border-slate-700">
                       <div
-                        className="h-full bg-white rounded-full transition-all duration-1000"
+                        className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 transition-all duration-500"
                         style={{ width: `${sw.level}%` }}
                       />
+                    </div>
+                    <div className="flex items-center justify-between text-[11px] text-slate-400">
+                      <span>{sw.category}</span>
+                      <span className="font-mono text-slate-400">{sw.lod}</span>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Standards & Authority Codes Compliance Box */}
-            <div className="rounded-2xl bg-[#0a0a0a] border border-white/10 p-7 shadow-xl space-y-4">
-              <div className="flex items-center gap-2 pb-3 border-b border-white/10">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <h3 className="text-sm font-bold text-white font-mono uppercase tracking-wider">
-                  Regulatory Codes &amp; Drawing Standards
-                </h3>
+            {/* Standards & Regional Codes */}
+            <div className="rounded-2xl bg-slate-900/80 border border-slate-700/80 p-6 sm:p-7 shadow-xl space-y-4 backdrop-blur-md">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-amber-400" />
+                  <h3 className="text-sm font-bold text-white">
+                    Codes, Standards &amp; Authorities
+                  </h3>
+                </div>
+                <span className="text-xs font-mono text-amber-300 font-semibold">SBC &amp; NFPA Compliant</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {standardsAndCodes.map((std, idx) => (
-                  <div key={idx} className="p-3.5 rounded-xl bg-neutral-950 border border-white/10 space-y-1">
-                    <div className="font-mono text-xs font-bold text-white uppercase tracking-wider">
-                      {std.code}
-                    </div>
-                    <p className="text-[11px] text-neutral-400 leading-relaxed font-light">
-                      {std.desc}
-                    </p>
+                {standardsAndCodes.map((code, idx) => (
+                  <div key={idx} className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
+                    <div className="text-xs font-bold text-white font-mono">{code.code}</div>
+                    <div className="text-[11px] text-slate-400 leading-snug">{code.desc}</div>
                   </div>
                 ))}
               </div>
@@ -197,82 +188,59 @@ export const CertificationsSkills: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Academic Degrees & Language Proficiencies */}
-          <div className="lg:col-span-5 space-y-8">
+          {/* Right Column: Education & Languages */}
+          <div className="lg:col-span-5 space-y-6">
             
-            {/* Education Box */}
-            <div className="rounded-2xl bg-[#0a0a0a] border border-white/10 p-7 shadow-xl space-y-5">
-              <div className="flex items-center gap-2 pb-3 border-b border-white/10">
-                <GraduationCap className="w-4 h-4 text-white" />
-                <h3 className="text-sm font-bold text-white font-mono uppercase tracking-wider">
-                  Academic Education
-                </h3>
+            {/* Academic Degrees */}
+            <div className="rounded-2xl bg-slate-900/80 border border-slate-700/80 p-6 sm:p-7 shadow-xl space-y-4 backdrop-blur-md">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+                <div className="flex items-center gap-2">
+                  <GraduationCap className="w-4 h-4 text-cyan-400" />
+                  <h3 className="text-sm font-bold text-white">
+                    Academic Background
+                  </h3>
+                </div>
+                <span className="text-xs font-mono text-slate-400">Higher Education</span>
               </div>
 
               <div className="space-y-4">
                 {educationList.map((edu, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-neutral-950 border border-white/10 space-y-2">
+                  <div key={idx} className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white uppercase tracking-wider">
-                        {edu.period}
-                      </span>
-                      <span className="text-[10px] font-mono text-neutral-500 uppercase">{edu.location}</span>
+                      <h4 className="text-sm font-bold text-white">{edu.degree}</h4>
+                      <span className="text-xs font-mono text-slate-400">{edu.period}</span>
                     </div>
-
-                    <h4 className="text-sm font-bold text-white leading-snug font-serif italic">
-                      {edu.degree}
-                    </h4>
-                    
-                    <p className="text-xs text-neutral-400 font-mono">
-                      {edu.institution}
-                    </p>
-
-                    <p className="text-[11px] text-neutral-400 pt-2 border-t border-white/10 font-light">
-                      <strong className="text-neutral-200">Focus:</strong> {edu.field}
-                    </p>
+                    <div className="text-xs text-cyan-300 font-mono">{edu.institution} • {edu.location}</div>
+                    <p className="text-xs text-slate-400 font-normal leading-relaxed">{edu.field}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Languages Card */}
-            <div className="rounded-2xl bg-[#0a0a0a] border border-white/10 p-7 shadow-xl space-y-4">
-              <div className="flex items-center gap-2 pb-3 border-b border-white/10">
-                <Languages className="w-4 h-4 text-white" />
-                <h3 className="text-sm font-bold text-white font-mono uppercase tracking-wider">
-                  Language Proficiencies
-                </h3>
+            {/* Language Fluency */}
+            <div className="rounded-2xl bg-slate-900/80 border border-slate-700/80 p-6 sm:p-7 shadow-xl space-y-4 backdrop-blur-md">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+                <div className="flex items-center gap-2">
+                  <Languages className="w-4 h-4 text-emerald-400" />
+                  <h3 className="text-sm font-bold text-white">
+                    Languages
+                  </h3>
+                </div>
+                <span className="text-xs font-mono text-emerald-400 font-semibold">Multilingual</span>
               </div>
 
-              <div className="space-y-3">
-                <div className="p-3.5 rounded-xl bg-neutral-950 border border-white/10 flex items-center justify-between">
-                  <div>
-                    <span className="text-xs font-bold text-white block">English</span>
-                    <span className="text-[11px] text-neutral-400 font-light">Professional Working Proficiency</span>
-                  </div>
-                  <span className="text-[9px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">
-                    Fluent Technical
-                  </span>
+              <div className="grid grid-cols-3 gap-3">
+                <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-center">
+                  <div className="text-xs font-bold text-white">English</div>
+                  <div className="text-[10px] font-mono text-emerald-400 mt-0.5">Professional Working</div>
                 </div>
-
-                <div className="p-3.5 rounded-xl bg-neutral-950 border border-white/10 flex items-center justify-between">
-                  <div>
-                    <span className="text-xs font-bold text-white block">Arabic</span>
-                    <span className="text-[11px] text-neutral-400 font-light">Conversational / Working Level</span>
-                  </div>
-                  <span className="text-[9px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800/40">
-                    KSA &amp; UAE Site
-                  </span>
+                <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-center">
+                  <div className="text-xs font-bold text-white">Arabic</div>
+                  <div className="text-[10px] font-mono text-cyan-400 mt-0.5">Working Technical</div>
                 </div>
-
-                <div className="p-3.5 rounded-xl bg-neutral-950 border border-white/10 flex items-center justify-between">
-                  <div>
-                    <span className="text-xs font-bold text-white block">Urdu</span>
-                    <span className="text-[11px] text-neutral-400 font-light">Native Proficiency</span>
-                  </div>
-                  <span className="text-[9px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800/40">
-                    Native
-                  </span>
+                <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-center">
+                  <div className="text-xs font-bold text-white">Urdu / Hindi</div>
+                  <div className="text-[10px] font-mono text-amber-400 mt-0.5">Native / Fluent</div>
                 </div>
               </div>
             </div>
