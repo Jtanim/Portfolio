@@ -69,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCvModal }) => {
               <h1 className="text-4xl sm:text-5xl xl:text-6xl font-black text-white tracking-tight leading-[1.08]">
                 Coordinating MEP Systems Across{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-300">
-                  350+ Projects.
+                  80+ Projects.
                 </span>
               </h1>
             </div>
