@@ -1,22 +1,35 @@
 @import "tailwindcss";
 
 @layer base {
+  :root {
+    --bg-primary: #07090E;
+    --bg-surface: #0D111A;
+    --bg-elevated: #131926;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.14);
+    --cyan-accent: #06b6d4;
+  }
+
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    background-color: #0B0F19;
-    color: #F8FAFC;
+    background-color: #07090E;
+    color: #F1F5F9;
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
   }
   
+  .font-display {
+    font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.03em;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: -0.02em;
+  }
+
   .font-serif {
     font-family: 'Playfair Display', Georgia, serif;
-  }
-
-  .font-display {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-  }
-
-  code, pre, .font-mono {
-    font-family: 'JetBrains Mono', monospace;
   }
 }
 
@@ -24,44 +37,66 @@
 .bg-cad-grid {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
 .bg-cad-dots {
   background-size: 24px 24px;
-  background-image: radial-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px);
 }
 
-/* Glassmorphism and Card Accents */
-.glass-panel {
-  background: rgba(17, 24, 39, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+.bg-blueprint-radial {
+  background: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.08) 0%, rgba(7, 9, 14, 0) 70%);
+}
+
+/* Architectural Card & Panel Design (Anti-Slop, High Craft) */
+.arch-card {
+  background: linear-gradient(180deg, rgba(19, 25, 38, 0.85) 0%, rgba(13, 17, 26, 0.95) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-panel-hover {
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.glass-panel-hover:hover {
-  background: rgba(24, 33, 53, 0.85);
+.arch-card:hover {
   border-color: rgba(6, 182, 212, 0.35);
-  box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.15);
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.6), 0 0 24px -4px rgba(6, 182, 212, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
 }
 
-.glow-cyan {
-  box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.25);
+.arch-panel {
+  background: rgba(13, 17, 26, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
-.glow-amber {
-  box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.25);
+/* Architectural Crosshair Node */
+.crosshair-corner {
+  position: relative;
 }
-
-.glow-emerald {
-  box-shadow: 0 0 35px -5px rgba(16, 185, 129, 0.25);
+.crosshair-corner::before {
+  content: '+';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(6, 182, 212, 0.4);
+  pointer-events: none;
+}
+.crosshair-corner::after {
+  content: '+';
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(6, 182, 212, 0.4);
+  pointer-events: none;
 }
 
 /* Precision scrollbar */
@@ -71,7 +106,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0F19;
+  background: #07090E;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -83,11 +118,20 @@
   background: #334155;
 }
 
-@keyframes pulseSlow {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.05); }
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.animate-pulse-slow {
-  animation: pulseSlow 6s ease-in-out infinite;
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-float {
+  animation: floatGentle 4s ease-in-out infinite;
 }

@@ -12,21 +12,21 @@ import { experiences } from '../data/portfolioData';
 
 export const ExperienceTimeline: React.FC = () => {
   return (
-    <section id="experience" className="py-20 bg-[#0B0F19] border-b border-slate-800/80 relative">
+    <section id="experience" className="py-20 bg-[#07090E] border-b border-white/[0.08] relative">
       
-      {/* Background Glow */}
+      {/* Background Subtle Ambient */}
       <div className="absolute top-1/3 right-10 w-[450px] h-[350px] bg-cyan-500/5 blur-[140px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-6 border-b border-slate-800">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-6 border-b border-white/[0.08]">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-mono mb-3">
               <Briefcase className="w-3.5 h-3.5" />
               <span>10+ Years Career Record</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
               Professional Work History
             </h2>
             <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl font-normal">
@@ -41,8 +41,8 @@ export const ExperienceTimeline: React.FC = () => {
         </div>
 
         {/* Timeline Stack */}
-        <div className="space-y-8 relative before:absolute before:inset-0 before:left-4 sm:before:left-8 before:w-[2px] before:bg-slate-800 before:z-0">
-          {experiences.map((exp, idx) => (
+        <div className="space-y-8 relative before:absolute before:inset-0 before:left-4 sm:before:left-8 before:w-[2px] before:bg-white/[0.08] before:z-0">
+          {experiences.map((exp) => (
             <div
               key={exp.id}
               className="relative z-10 pl-10 sm:pl-16 group"
@@ -57,13 +57,13 @@ export const ExperienceTimeline: React.FC = () => {
               </div>
 
               {/* Experience Card */}
-              <div className="rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-cyan-500/40 p-6 sm:p-7 shadow-xl hover:shadow-cyan-950/20 transition-all backdrop-blur-md">
+              <div className="arch-card p-6 sm:p-7 group">
                 
                 {/* Header Information */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/[0.08]">
                   <div>
                     <div className="flex flex-wrap items-center gap-2.5">
-                      <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                      <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight font-display">
                         {exp.role}
                       </h3>
                       {exp.isCurrent && (
@@ -86,7 +86,7 @@ export const ExperienceTimeline: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700 text-xs font-mono text-slate-300 self-start md:self-auto">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#090D15] border border-white/[0.08] text-xs font-mono text-slate-300 self-start md:self-auto">
                     <Calendar className="w-3.5 h-3.5 text-cyan-400" />
                     <span>{exp.period}</span>
                   </div>
@@ -113,13 +113,13 @@ export const ExperienceTimeline: React.FC = () => {
                 </div>
 
                 {/* Software Used in this role */}
-                <div className="pt-4 mt-5 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
+                <div className="pt-4 mt-5 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap items-center gap-1.5">
                     <span className="text-[11px] font-mono text-slate-400 mr-1 font-semibold">STACK:</span>
                     {exp.software.map((sw, i) => (
                       <span
                         key={i}
-                        className="px-2 py-0.5 rounded-md text-[11px] font-mono bg-slate-800 text-slate-300 border border-slate-700"
+                        className="px-2 py-0.5 rounded-md text-[11px] font-mono bg-[#090D15] text-slate-300 border border-white/[0.08]"
                       >
                         {sw}
                       </span>

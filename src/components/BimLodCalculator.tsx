@@ -30,9 +30,9 @@ export const BimLodCalculator: React.FC = () => {
   const estimatedCoordWeeks = Math.max(4, Math.round((estimatedSheets / 25) * 1.1));
 
   return (
-    <section id="estimator" className="py-20 bg-[#0B0F19] border-b border-slate-800/80 relative">
+    <section id="estimator" className="py-20 bg-[#07090E] border-b border-white/[0.08] relative">
       
-      {/* Background Ambient Glow */}
+      {/* Background Subtle Ambient */}
       <div className="absolute top-1/3 left-1/4 w-[400px] h-[300px] bg-cyan-500/5 blur-[130px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -43,7 +43,7 @@ export const BimLodCalculator: React.FC = () => {
             <Calculator className="w-3.5 h-3.5" />
             <span>Interactive MEP BIM Estimator</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
             Drawings &amp; Clash Scope Calculator
           </h2>
           <p className="text-slate-300 text-sm sm:text-base font-normal">
@@ -54,9 +54,9 @@ export const BimLodCalculator: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Controls Box */}
-          <div className="lg:col-span-6 rounded-2xl bg-slate-900/80 border border-slate-700/80 p-6 sm:p-7 shadow-xl space-y-5 backdrop-blur-md">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-              <h3 className="text-sm font-bold text-white">
+          <div className="lg:col-span-6 arch-panel p-6 sm:p-7 shadow-xl space-y-5">
+            <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+              <h3 className="text-sm font-bold text-white font-display">
                 Project Parameters
               </h3>
               <span className="text-xs text-cyan-300 font-mono">BEP Engine</span>
@@ -80,7 +80,7 @@ export const BimLodCalculator: React.FC = () => {
                     className={`py-2 px-2 text-xs font-medium rounded-xl border transition-all text-center cursor-pointer ${
                       buildingType === item.key
                         ? 'bg-cyan-500 text-slate-950 font-bold border-cyan-400 shadow-sm shadow-cyan-500/20'
-                        : 'bg-slate-800/80 text-slate-300 border-slate-700 hover:text-white hover:bg-slate-800'
+                        : 'bg-slate-900/90 text-slate-300 border-white/[0.08] hover:text-white hover:bg-slate-800'
                     }`}
                   >
                     {item.label}
@@ -102,7 +102,7 @@ export const BimLodCalculator: React.FC = () => {
                 step="2500"
                 value={areaGfa}
                 onChange={(e) => setAreaGfa(Number(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400 border border-slate-700"
+                className="w-full h-2 bg-slate-900 rounded-lg appearance-none cursor-pointer accent-cyan-400 border border-white/[0.08]"
               />
               <div className="flex justify-between text-[10px] font-mono text-slate-400">
                 <span>5k m² (Villa/Clubhouse)</span>
@@ -121,8 +121,8 @@ export const BimLodCalculator: React.FC = () => {
                   onClick={() => setTargetLod('LOD 300')}
                   className={`p-3 rounded-xl border text-xs text-left transition-all cursor-pointer ${
                     targetLod === 'LOD 300'
-                      ? 'bg-cyan-500/15 border-cyan-400 text-white shadow-sm shadow-cyan-500/20'
-                      : 'bg-slate-800/80 border-slate-700 text-slate-300 hover:bg-slate-800'
+                      ? 'bg-cyan-500/20 border-cyan-400 text-white shadow-sm shadow-cyan-500/20'
+                      : 'bg-slate-900/90 border-white/[0.08] text-slate-300 hover:bg-slate-800'
                   }`}
                 >
                   <div className="font-bold text-white">LOD 300 Coordinated</div>
@@ -133,8 +133,8 @@ export const BimLodCalculator: React.FC = () => {
                   onClick={() => setTargetLod('LOD 400')}
                   className={`p-3 rounded-xl border text-xs text-left transition-all cursor-pointer ${
                     targetLod === 'LOD 400'
-                      ? 'bg-cyan-500/15 border-cyan-400 text-white shadow-sm shadow-cyan-500/20'
-                      : 'bg-slate-800/80 border-slate-700 text-slate-300 hover:bg-slate-800'
+                      ? 'bg-cyan-500/20 border-cyan-400 text-white shadow-sm shadow-cyan-500/20'
+                      : 'bg-slate-900/90 border-white/[0.08] text-slate-300 hover:bg-slate-800'
                   }`}
                 >
                   <div className="font-bold text-white">LOD 400 Fabrication</div>
@@ -145,7 +145,7 @@ export const BimLodCalculator: React.FC = () => {
 
             {/* Fire & ELV Inclusion Toggle */}
             <div className="pt-2">
-              <label className="flex items-center gap-3 p-3 rounded-xl bg-slate-950/80 border border-slate-800 cursor-pointer">
+              <label className="flex items-center gap-3 p-3 rounded-xl bg-[#090D15] border border-white/[0.08] cursor-pointer">
                 <input
                   type="checkbox"
                   checked={includeFireAndElv}
@@ -166,45 +166,45 @@ export const BimLodCalculator: React.FC = () => {
             <div className="grid grid-cols-2 gap-4">
               
               {/* Metric 1 */}
-              <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-700/80 space-y-2 backdrop-blur-md">
+              <div className="arch-card p-5 space-y-2 group">
                 <div className="flex items-center justify-between">
                   <FileSpreadsheet className="w-5 h-5 text-cyan-400" />
                   <span className="text-[10px] font-mono uppercase text-slate-400">Sheets</span>
                 </div>
-                <div className="text-3xl font-black text-white font-mono">{estimatedSheets}</div>
+                <div className="text-3xl font-extrabold text-white font-mono">{estimatedSheets}</div>
                 <div className="text-xs font-semibold text-slate-200">MEP Coordinated Shop Drawings</div>
                 <div className="text-[11px] text-slate-400 leading-snug">Plans, risers &amp; builders work</div>
               </div>
 
               {/* Metric 2 */}
-              <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-700/80 space-y-2 backdrop-blur-md">
+              <div className="arch-card p-5 space-y-2 group">
                 <div className="flex items-center justify-between">
                   <Layers className="w-5 h-5 text-amber-400" />
                   <span className="text-[10px] font-mono uppercase text-slate-400">Clashes</span>
                 </div>
-                <div className="text-3xl font-black text-white font-mono">~{estimatedClashResolutions}</div>
+                <div className="text-3xl font-extrabold text-white font-mono">~{estimatedClashResolutions}</div>
                 <div className="text-xs font-semibold text-slate-200">Virtual Clashes Cleared</div>
                 <div className="text-[11px] text-slate-400 leading-snug">Resolved in Navisworks federated</div>
               </div>
 
               {/* Metric 3 */}
-              <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-700/80 space-y-2 backdrop-blur-md">
+              <div className="arch-card p-5 space-y-2 group">
                 <div className="flex items-center justify-between">
                   <Clock className="w-5 h-5 text-emerald-400" />
                   <span className="text-[10px] font-mono uppercase text-slate-400">Schedule</span>
                 </div>
-                <div className="text-3xl font-black text-white font-mono">~{estimatedCoordWeeks} Wks</div>
+                <div className="text-3xl font-extrabold text-white font-mono">~{estimatedCoordWeeks} Wks</div>
                 <div className="text-xs font-semibold text-slate-200">BIM Coordination Timeline</div>
                 <div className="text-[11px] text-slate-400 leading-snug">Iterative clash cycle duration</div>
               </div>
 
               {/* Metric 4 */}
-              <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-700/80 space-y-2 backdrop-blur-md">
+              <div className="arch-card p-5 space-y-2 group">
                 <div className="flex items-center justify-between">
                   <ShieldCheck className="w-5 h-5 text-cyan-300" />
                   <span className="text-[10px] font-mono uppercase text-slate-400">Benefit</span>
                 </div>
-                <div className="text-3xl font-black text-white font-mono">~20%</div>
+                <div className="text-3xl font-extrabold text-white font-mono">~20%</div>
                 <div className="text-xs font-semibold text-slate-200">Site Rework &amp; RFI Reduction</div>
                 <div className="text-[11px] text-slate-400 leading-snug">First-time-right on site install</div>
               </div>
@@ -212,7 +212,7 @@ export const BimLodCalculator: React.FC = () => {
             </div>
 
             {/* Quick Contact CTA */}
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-cyan-950/40 to-blue-950/40 border border-cyan-500/30 flex items-center justify-between">
+            <div className="p-4 rounded-xl bg-gradient-to-r from-cyan-950/40 to-blue-950/40 border border-cyan-500/30 flex items-center justify-between">
               <div className="text-xs text-slate-300">
                 Need an accurate BIM Execution Plan (BEP) for this scope?
               </div>

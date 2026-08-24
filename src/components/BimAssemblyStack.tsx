@@ -130,7 +130,7 @@ export const BimAssemblyStack: React.FC = () => {
       lod: 'LOD 350',
       elements: 96,
       heightLevel: 'Level 04 (+0.00 Slab FFL)',
-      color: '#64748b',
+      color: '#94a3b8',
       borderColor: 'border-slate-600/40',
       bgColor: 'bg-slate-900/60',
       textColor: 'text-slate-300',
@@ -161,31 +161,31 @@ export const BimAssemblyStack: React.FC = () => {
     .reduce((acc, curr) => acc + curr.elements, 0);
 
   return (
-    <section id="assembly-stack" className="py-20 bg-[#0B0F19] border-b border-slate-800/80 relative">
-      {/* Background Glow */}
+    <section id="assembly-stack" className="py-20 bg-[#07090E] border-b border-white/[0.08] relative">
+      {/* Background Subtle Ambient */}
       <div className="absolute top-1/3 left-1/4 w-[500px] h-[350px] bg-cyan-500/5 blur-[140px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-6 border-b border-slate-800">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-6 border-b border-white/[0.08]">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-mono mb-3">
               <Layers className="w-3.5 h-3.5" />
-              <span>Scroll-Triggered Multi-Discipline Assembly</span>
+              <span>Multi-Discipline Isometric Stack</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
               BIM Federated Stack Assembly
             </h2>
             <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl font-normal">
-              Inspect how multidisciplinary MEP layers assemble within vertical plenum clearances without physical collisions.
+              Inspect how multidisciplinary MEP layers assemble within vertical plenum clearances without physical collisions or maintenance access conflicts.
             </p>
           </div>
 
-          <div className="flex items-center gap-3 font-mono text-xs text-slate-300 bg-slate-900/80 px-4 py-2 rounded-xl border border-slate-700/80">
-            <span className="text-slate-400">Assembled Elements:</span>
+          <div className="flex items-center gap-3 font-mono text-xs text-slate-300 bg-[#0D111A] px-4 py-2 rounded-xl border border-white/[0.08]">
+            <span className="text-slate-400">Assembled Objects:</span>
             <span className="text-cyan-300 font-bold text-sm">{totalElements}</span>
-            <span className="text-emerald-400 border-l border-slate-700 pl-3">100% Coordinated</span>
+            <span className="text-emerald-400 border-l border-white/[0.08] pl-3">100% Coordinated</span>
           </div>
         </div>
 
@@ -206,7 +206,7 @@ export const BimAssemblyStack: React.FC = () => {
 
             {/* Visual Stack Cards */}
             <div className="space-y-3">
-              {layers.map((layer, idx) => {
+              {layers.map((layer) => {
                 const Icon = layer.icon;
                 const isActive = activeLayers.includes(layer.id);
                 const isSelected = selectedLayerId === layer.id;
@@ -215,12 +215,12 @@ export const BimAssemblyStack: React.FC = () => {
                   <div
                     key={layer.id}
                     onClick={() => setSelectedLayerId(layer.id)}
-                    className={`p-4 rounded-2xl border transition-all duration-300 cursor-pointer backdrop-blur-md flex items-center justify-between gap-4 group ${
+                    className={`p-4 rounded-xl border transition-all duration-300 cursor-pointer flex items-center justify-between gap-4 group ${
                       isSelected
-                        ? 'bg-slate-900/90 border-cyan-400 ring-2 ring-cyan-500/20 shadow-xl shadow-cyan-950/40'
+                        ? 'bg-[#141A26] border-cyan-400 ring-2 ring-cyan-500/20 shadow-xl shadow-cyan-950/40'
                         : isActive
-                        ? 'bg-slate-900/60 border-slate-700/80 hover:border-slate-600'
-                        : 'bg-slate-950/40 border-slate-800/60 opacity-40 hover:opacity-60'
+                        ? 'bg-[#0D111A] border-white/[0.08] hover:border-white/[0.18]'
+                        : 'bg-[#090D15]/60 border-white/[0.04] opacity-40 hover:opacity-60'
                     }`}
                   >
                     {/* Left: Icon & Layer Info */}
@@ -241,7 +241,7 @@ export const BimAssemblyStack: React.FC = () => {
                           <h3 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors">
                             {layer.name}
                           </h3>
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300 border border-white/[0.08]">
                             {layer.lod}
                           </span>
                         </div>
@@ -261,7 +261,7 @@ export const BimAssemblyStack: React.FC = () => {
                         className={`px-3 py-1 rounded-lg text-xs font-mono font-medium border transition-all cursor-pointer ${
                           isActive
                             ? 'bg-emerald-950/60 text-emerald-300 border-emerald-500/40'
-                            : 'bg-slate-800 text-slate-400 border-slate-700'
+                            : 'bg-slate-900 text-slate-400 border-white/[0.08]'
                         }`}
                       >
                         {isActive ? 'Stacked' : 'Hidden'}
@@ -275,10 +275,10 @@ export const BimAssemblyStack: React.FC = () => {
 
           {/* Right Column: Deep-Dive Layer Inspector */}
           <div className="lg:col-span-5">
-            <div className="rounded-2xl bg-slate-900/90 border border-slate-700/80 p-6 shadow-2xl backdrop-blur-xl space-y-5">
+            <div className="arch-panel p-6 shadow-2xl space-y-5">
               
               {/* Header */}
-              <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+              <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
                 <div className="flex items-center gap-3">
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center border"
@@ -300,7 +300,7 @@ export const BimAssemblyStack: React.FC = () => {
                   </div>
                 </div>
 
-                <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-slate-800 text-slate-200 border border-slate-700">
+                <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-slate-900 text-slate-200 border border-white/[0.08]">
                   {selectedLayer.lod}
                 </span>
               </div>
@@ -311,7 +311,7 @@ export const BimAssemblyStack: React.FC = () => {
               </p>
 
               {/* Technical Specifications */}
-              <div className="space-y-2 pt-2 border-t border-slate-800">
+              <div className="space-y-2 pt-2 border-t border-white/[0.08]">
                 <div className="text-[11px] uppercase font-mono text-slate-400 font-semibold">
                   Engineering Specifications:
                 </div>
@@ -326,14 +326,14 @@ export const BimAssemblyStack: React.FC = () => {
               </div>
 
               {/* Metric Box */}
-              <div className="grid grid-cols-2 gap-3 pt-3 border-t border-slate-800">
-                <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+              <div className="grid grid-cols-2 gap-3 pt-3 border-t border-white/[0.08]">
+                <div className="p-3 rounded-xl bg-[#090D15] border border-white/[0.08]">
                   <div className="text-[10px] font-mono text-slate-400">HEIGHT ZONE</div>
                   <div className="text-xs font-bold text-white font-mono mt-0.5">
                     {selectedLayer.heightLevel.split(' ')[0]}
                   </div>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div className="p-3 rounded-xl bg-[#090D15] border border-white/[0.08]">
                   <div className="text-[10px] font-mono text-slate-400">MODELED QUANTITY</div>
                   <div className="text-xs font-bold text-emerald-400 font-mono mt-0.5">
                     {selectedLayer.elements} Active Objects

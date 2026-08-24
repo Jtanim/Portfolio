@@ -80,13 +80,13 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto bg-slate-950/80 backdrop-blur-md animate-fadeIn print:p-0 print:bg-white print:static print:overflow-visible">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto bg-black/80 backdrop-blur-xl animate-fadeIn print:p-0 print:bg-white print:static print:overflow-visible">
       <div 
-        className="relative w-full max-w-5xl bg-[#0F1626] text-slate-100 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden my-4 max-h-[92vh] flex flex-col print:border-none print:shadow-none print:max-h-none print:w-full print:bg-white print:text-black"
+        className="relative w-full max-w-5xl bg-[#0D111A] text-slate-100 border border-white/[0.12] rounded-2xl shadow-2xl overflow-hidden my-4 max-h-[92vh] flex flex-col print:border-none print:shadow-none print:max-h-none print:w-full print:bg-white print:text-black"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Actions Bar (Hidden during actual print) */}
-        <div className="p-4 bg-slate-900/95 border-b border-slate-800 flex items-center justify-between print:hidden">
+        <div className="p-4 bg-[#090D15] border-b border-white/[0.08] flex items-center justify-between print:hidden">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-300 font-bold font-mono text-sm">
               IH
@@ -100,7 +100,7 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
           <div className="flex items-center gap-2">
             <button
               onClick={handleCopyText}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono uppercase tracking-wider text-slate-300 border border-slate-700 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-mono uppercase tracking-wider text-slate-300 border border-white/[0.08] transition-colors cursor-pointer"
               title="Copy plain text CV to clipboard"
             >
               {copied ? (
@@ -126,7 +126,7 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white border border-slate-700 transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-white/[0.08] transition-colors cursor-pointer"
               aria-label="Close CV preview"
             >
               <X className="w-5 h-5" />
@@ -135,14 +135,14 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
         </div>
 
         {/* Scrollable Printable Document Canvas */}
-        <div className="p-6 sm:p-10 overflow-y-auto space-y-6 bg-[#0B0F19] text-slate-200 print:p-8 print:bg-white print:text-black font-sans">
+        <div className="p-6 sm:p-10 overflow-y-auto space-y-6 bg-[#090D15] text-slate-200 print:p-8 print:bg-white print:text-black font-sans">
           
           {/* CV Header */}
-          <div className="border-b-2 border-slate-700/80 pb-5 text-center space-y-2 print:border-black">
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight print:text-black">
+          <div className="border-b-2 border-white/[0.12] pb-5 text-center space-y-2 print:border-black">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight print:text-black font-display">
               IQBAL HUSSAIN
             </h1>
-            <div className="text-sm font-semibold text-cyan-400 uppercase tracking-wider print:text-gray-800">
+            <div className="text-sm font-semibold text-cyan-400 uppercase tracking-wider print:text-gray-800 font-mono">
               SENIOR MEP BIM COORDINATOR &amp; DRAFTSMAN
             </div>
             
@@ -170,7 +170,7 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
 
           {/* Executive Summary */}
           <div className="space-y-2">
-            <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-slate-800 print:border-gray-300 pb-1">
+            <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-white/[0.08] print:border-gray-300 pb-1">
               Executive Summary
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal print:text-gray-800">
@@ -180,7 +180,7 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
 
           {/* Professional Experience */}
           <div className="space-y-4">
-            <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-slate-800 print:border-gray-300 pb-1">
+            <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-white/[0.08] print:border-gray-300 pb-1">
               Professional Work Experience
             </h2>
             <div className="space-y-4">
@@ -210,12 +210,12 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
 
           {/* Flagship Projects */}
           <div className="space-y-3">
-            <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-slate-800 print:border-gray-300 pb-1">
+            <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-white/[0.08] print:border-gray-300 pb-1">
               Flagship Project Deliverables
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {selectedProjects.map((p) => (
-                <div key={p.id} className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 print:bg-gray-50 print:border-gray-200 text-xs space-y-1">
+                <div key={p.id} className="p-3 rounded-lg bg-[#0D111A] border border-white/[0.08] print:bg-gray-50 print:border-gray-200 text-xs space-y-1">
                   <div className="font-bold text-white print:text-black">{p.title}</div>
                   <div className="text-[11px] text-slate-400 font-mono print:text-gray-600">{p.location} • {p.role}</div>
                   <div className="text-slate-300 print:text-gray-800">{p.scope}</div>
@@ -227,7 +227,7 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
           {/* Certifications & Education */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
             <div className="space-y-2">
-              <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-slate-800 print:border-gray-300 pb-1">
+              <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-white/[0.08] print:border-gray-300 pb-1">
                 Accreditations &amp; Certifications
               </h2>
               <ul className="space-y-1.5 text-xs text-slate-300 print:text-gray-800">
@@ -241,7 +241,7 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
             </div>
 
             <div className="space-y-2">
-              <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-slate-800 print:border-gray-300 pb-1">
+              <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 print:text-black border-b border-white/[0.08] print:border-gray-300 pb-1">
                 Education &amp; Technical Skills
               </h2>
               <div className="space-y-2 text-xs text-slate-300 print:text-gray-800">
@@ -251,7 +251,7 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
                     <div className="text-slate-400 print:text-gray-600">{edu.institution} ({edu.period})</div>
                   </div>
                 ))}
-                <div className="pt-2 border-t border-slate-800 print:border-gray-200">
+                <div className="pt-2 border-t border-white/[0.08] print:border-gray-200">
                   <strong className="text-white print:text-black">Core Stack:</strong> Revit MEP (LOD 400), AutoCAD MEP, Navisworks Manage, BIM 360 / ACC, ISO 19650 CDE, SBC/NFPA Codes.
                 </div>
               </div>
@@ -261,7 +261,7 @@ Revit MEP, AutoCAD, Navisworks Manage, Autodesk BIM 360, Autodesk Construction C
         </div>
 
         {/* Print Notice Footer */}
-        <div className="p-3 bg-slate-900 border-t border-slate-800 text-center text-[11px] text-slate-400 font-mono print:hidden flex items-center justify-center gap-2">
+        <div className="p-3 bg-[#090D15] border-t border-white/[0.08] text-center text-[11px] text-slate-400 font-mono print:hidden flex items-center justify-center gap-2">
           <span>Formatted for direct ATS scanning and A4/Letter printer output</span>
         </div>
       </div>

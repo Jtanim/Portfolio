@@ -22,14 +22,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
   };
 
   return (
-    <footer className="bg-[#080B12] border-t border-slate-800/80 pt-16 pb-12 text-slate-400">
+    <footer className="bg-[#05070B] border-t border-white/[0.08] pt-16 pb-12 text-slate-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Brand Banner Strip */}
-        <div className="pb-12 border-b border-slate-800 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="pb-12 border-b border-white/[0.08] flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-1">
             <span className="text-xs font-mono uppercase text-cyan-400 font-semibold tracking-wider block">Senior MEP BIM Coordinator</span>
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-display">
               Iqbal Hussain
             </h2>
           </div>
@@ -39,13 +39,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               Transferable Iqama
             </span>
-            <span className="px-3 py-1 rounded-full bg-slate-800/80 text-slate-300 border border-slate-700 font-medium">
+            <span className="px-3 py-1 rounded-full bg-slate-900 text-slate-300 border border-white/[0.08] font-medium">
               Riyadh, Saudi Arabia
             </span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-10 border-b border-slate-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-10 border-b border-white/[0.08]">
           
           {/* Col 1: Identity & Status */}
           <div className="space-y-3">
@@ -68,6 +68,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
             <ul className="space-y-1.5 text-xs">
               <li><a href="#hero" className="text-slate-300 hover:text-cyan-300 transition-colors">Overview &amp; Live BIM HUD</a></li>
               <li><a href="#bim-explorer" className="text-slate-300 hover:text-cyan-300 transition-colors">Navisworks Clash Lab</a></li>
+              <li><a href="#assembly-stack" className="text-slate-300 hover:text-cyan-300 transition-colors">Federated 3D Stack</a></li>
               <li><a href="#projects" className="text-slate-300 hover:text-cyan-300 transition-colors">Mega-Project Portfolio</a></li>
               <li><a href="#capabilities" className="text-slate-300 hover:text-cyan-300 transition-colors">Core MEP Disciplines</a></li>
               <li><a href="#experience" className="text-slate-300 hover:text-cyan-300 transition-colors">Professional Work History</a></li>
@@ -135,7 +136,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCvModal }) => {
             <span className="text-[11px] text-slate-400">REVIT • NAVISWORKS • ISO 19650 • AUTOCAD</span>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 transition-colors flex items-center gap-1 cursor-pointer"
+              className="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-white/[0.08] transition-colors flex items-center gap-1 cursor-pointer"
               aria-label="Scroll to top"
             >
               <ArrowUp className="w-4 h-4" />
